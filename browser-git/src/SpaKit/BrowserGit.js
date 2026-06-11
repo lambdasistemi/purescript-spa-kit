@@ -88,15 +88,30 @@ async function log(repo, filepath) {
     const entries = await git.log({
       fs: repo.fs,
       dir: repo.dir,
-      filepath,
       depth: 50,
     });
 
-    return entries.map((entry) => ({
-      oid: entry.oid,
-      message: firstLine(entry.commit.message),
-      timestamp: timestampFor(entry.commit.author),
-    }));
+    const fileEntries = [];
+    for (const entry of entries) {
+      const blobOid = await blobOidAt(repo, entry.oid, filepath);
+      if (!blobOid) {
+        continue;
+      }
+
+      const parent = entry.commit.parent?.[0];
+      const parentBlobOid = parent ? await blobOidAt(repo, parent, filepath) : null;
+      if (blobOid === parentBlobOid) {
+        continue;
+      }
+
+      fileEntries.push({
+        oid: entry.oid,
+        message: firstLine(entry.commit.message),
+        timestamp: timestampFor(entry.commit.author),
+      });
+    }
+
+    return fileEntries;
   } catch (err) {
     if (isEmptyRepositoryError(err)) {
       return [];
@@ -113,6 +128,20 @@ async function readFileAt(repo, filepath, ref) {
     filepath,
   });
   return new TextDecoder().decode(blob);
+}
+
+async function blobOidAt(repo, ref, filepath) {
+  try {
+    const { oid } = await git.readBlob({
+      fs: repo.fs,
+      dir: repo.dir,
+      oid: ref,
+      filepath,
+    });
+    return oid;
+  } catch (_err) {
+    return null;
+  }
 }
 
 async function hasStagedChange(repo, filepath) {
