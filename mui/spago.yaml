@@ -1,0 +1,9 @@
+package:
+  name: mui
+  dependencies:
+    - effect
+    - prelude
+    - react-basic
+  build:
+    strict: true
+

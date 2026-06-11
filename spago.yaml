@@ -1,0 +1,5 @@
+workspace:
+  packageSet:
+    registry: 72.1.0
+  extraPackages: {}
+

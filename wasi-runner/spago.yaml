@@ -1,0 +1,10 @@
+package:
+  name: wasi-runner
+  dependencies:
+    - aff
+    - aff-promise
+    - effect
+    - prelude
+  build:
+    strict: true
+

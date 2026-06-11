@@ -1,0 +1,28 @@
+{
+  "name": "purescript-spa-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reusable PureScript SPA packages for browser WASI, MUI, and CodeMirror",
+  "scripts": {
+    "build": "spago build",
+    "format": "purs-tidy format-in-place 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs'",
+    "format:check": "purs-tidy check 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs'",
+    "ci": "npm ci && npm run format:check && npm run build"
+  },
+  "dependencies": {
+    "@bjorn3/browser_wasi_shim": "^0.4.2",
+    "@codemirror/language": "^6.11.3",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@lezer/highlight": "^1.2.1",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "codemirror": "^6.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
+
