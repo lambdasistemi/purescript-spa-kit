@@ -12,6 +12,7 @@ module SpaKit.MUI
   , iconButton
   , appBar
   , toolbar
+  , drawer
   , tabs
   , tab
   , card
@@ -90,6 +91,7 @@ foreign import button :: forall r. Record r -> Array JSX -> JSX
 foreign import iconButton :: forall r. Record r -> Array JSX -> JSX
 foreign import appBar :: forall r. Record r -> Array JSX -> JSX
 foreign import toolbar :: forall r. Record r -> Array JSX -> JSX
+foreign import drawer :: forall r. Record r -> Array JSX -> JSX
 foreign import tabs :: forall r. Record r -> Array JSX -> JSX
 foreign import card :: forall r. Record r -> Array JSX -> JSX
 foreign import cardContent :: forall r. Record r -> Array JSX -> JSX
@@ -158,4 +160,3 @@ onValueChange = _onValueChange
 
 onCheckedChange :: (Boolean -> Effect Unit) -> EventHandler1
 onCheckedChange = _onCheckedChange
-

@@ -1,6 +1,20 @@
 {
   "workspace": {
     "packages": {
+      "browser-git": {
+        "path": "browser-git",
+        "core": {
+          "dependencies": [
+            "aff",
+            "aff-promise",
+            "effect",
+            "prelude"
+          ]
+        },
+        "test": {
+          "dependencies": []
+        }
+      },
       "codemirror": {
         "path": "codemirror",
         "core": {

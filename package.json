@@ -6,8 +6,8 @@
   "description": "Reusable PureScript SPA packages for browser WASI, MUI, and CodeMirror",
   "scripts": {
     "build": "spago build",
-    "format": "purs-tidy format-in-place 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs'",
-    "format:check": "purs-tidy check 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs'",
+    "format": "purs-tidy format-in-place 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs' 'browser-git/src/**/*.purs'",
+    "format:check": "purs-tidy check 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs' 'browser-git/src/**/*.purs'",
     "ci": "npm ci && npm run format:check && npm run build"
   },
   "dependencies": {
@@ -17,12 +17,14 @@
     "@codemirror/view": "^6.38.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@isomorphic-git/lightning-fs": "^4.6.0",
     "@lezer/highlight": "^1.2.1",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
+    "buffer": "^6.0.3",
     "codemirror": "^6.0.1",
+    "isomorphic-git": "^1.35.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
 }
-

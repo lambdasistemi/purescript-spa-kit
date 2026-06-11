@@ -13,6 +13,7 @@ import Switch from "@mui/material/Switch";
 import Checkbox from "@mui/material/Checkbox";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import Drawer from "@mui/material/Drawer";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Card from "@mui/material/Card";
@@ -80,6 +81,7 @@ export const button = mk(Button);
 export const iconButton = mk(IconButton);
 export const appBar = mk(AppBar);
 export const toolbar = mk(Toolbar);
+export const drawer = mk(Drawer);
 export const tabs = mk(Tabs);
 export const card = mk(Card);
 export const cardContent = mk(CardContent);
@@ -164,4 +166,3 @@ export const themeForMode = (mode) =>
   createTheme(themeOptions(mode === "dark" ? "dark" : "light"));
 
 export const defaultTheme = themeForMode("light");
-

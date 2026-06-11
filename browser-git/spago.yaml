@@ -1,0 +1,9 @@
+package:
+  name: browser-git
+  dependencies:
+    - aff
+    - aff-promise
+    - effect
+    - prelude
+  build:
+    strict: true

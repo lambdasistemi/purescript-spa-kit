@@ -7,10 +7,9 @@ build:
     spago build
 
 format:
-    purs-tidy format-in-place 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs'
+    purs-tidy format-in-place 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs' 'browser-git/src/**/*.purs'
 
 format-check:
-    purs-tidy check 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs'
+    purs-tidy check 'wasi-runner/src/**/*.purs' 'mui/src/**/*.purs' 'codemirror/src/**/*.purs' 'browser-git/src/**/*.purs'
 
 ci: install format-check build
-
