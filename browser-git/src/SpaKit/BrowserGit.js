@@ -43,6 +43,7 @@ async function initRepo(namespace) {
       await git.init({ fs, dir: DIR, defaultBranch: "main" });
     }
   }
+  await flush(repo);
 
   return repo;
 }
@@ -65,6 +66,7 @@ async function writeAndCommit(repo, filepath, content, message) {
 
   const changed = await hasStagedChange(repo, filepath);
   if (!changed) {
+    await flush(repo);
     return { oid: await currentHead(repo), committed: false };
   }
 
@@ -79,6 +81,7 @@ async function writeAndCommit(repo, filepath, content, message) {
       timezoneOffset: now.getTimezoneOffset(),
     },
   });
+  await flush(repo);
 
   return { oid, committed: true };
 }
@@ -183,6 +186,12 @@ async function exists(pfs, path) {
     return true;
   } catch (_err) {
     return false;
+  }
+}
+
+async function flush(repo) {
+  if (typeof repo.pfs.flush === "function") {
+    await repo.pfs.flush();
   }
 }
 
